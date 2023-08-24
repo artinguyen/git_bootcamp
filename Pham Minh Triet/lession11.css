@@ -1,0 +1,55 @@
+.keyboard{
+    background-color: gray;
+    height: 370px;
+    width: 1070px;
+}
+.kb--rowone, .kb--rowtwo, .kb--rowthree, .kb--rowfour, .kb--rowfive{
+    display: inline-flex;
+    justify-content: center;
+    border: 2px solid;
+    background-color: #ffffff;
+    width: 61px;
+    height: 61px;
+    margin-top: 2px;
+}
+.keyboard--rowone .kb--rowone:first-child{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.keyboard--rowone .kb--rowone:last-child{
+    width: 120px;
+}
+.keyboard--rowtwo .kb--rowtwo:first-child{
+    width: 90px;
+    margin-left: 20px;
+}
+.keyboard--rowtwo .kb--rowtwo:last-child{
+    width: 90px;
+}
+.keyboard--rowthree .kb--rowthree:first-child{
+    width: 130px;
+    margin-left: 20px;
+}
+.keyboard--rowthree .kb--rowthree:last-child{
+    width: 119px;
+}
+.keyboard--rowfour .kb--rowfour:first-child{
+    width: 158.5px;
+    margin-left: 20px;
+}
+.keyboard--rowfour .kb--rowfour:last-child{
+    width: 158.5px;
+}
+.keyboard--rowfive .kb--rowfive:first-child{
+    width: 91px;
+    margin-left: 20px;
+}
+.keyboard--rowfive .kb--rowfive:nth-child(3){
+    width: 95.5px;
+}
+.keyboard--rowfive .kb--rowfive:nth-child(4){
+    width: 433px;
+}
+.keyboard--rowfive .kb--rowfive:nth-child(5){
+    width: 95.5px;
+}
