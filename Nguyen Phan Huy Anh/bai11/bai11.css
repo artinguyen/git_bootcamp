@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.keyboard {
+    background-color: lightgray;
+    width: 95%;
+    border-radius: 10px;
+    height: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.line1 {
+    width: 100%;
+    display: flex;
+    flex-basis: calc(20% - 12px);
+    gap: 4px;
+    justify-content: space-between;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+.key-small1 {
+    flex-basis: 6.45%;
+    font-size: 16px;
+}
+
+.key-small2 {
+    flex-basis: 7.5%;
+}
+
+.key-medium1 {
+    flex-basis: 9.675%;
+}
+
+.key-large1 {
+    flex-basis: 12.9%;
+}
+
+.key-xlarge {
+    flex-basis: 16.125%;
+}
+
+.key-space {
+    flex-basis: 41.925%;
+}
+
+
+.key:hover {
+    cursor: pointer;
+    background-color: rgb(193, 187, 187);
+}

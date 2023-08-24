@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(51, 56, 69);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+}
+
+.header {
+  height: 80px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: 2px solid rgb(79, 83, 102);
+  background-color: rgb(45, 50, 63);
+  color: rgb(79, 83, 102);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.offers {
+  height: 80px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 0;
+  background-color: rgb(120, 122, 78);
+  color: rgb(62, 62, 37);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  gap: 16px;
+  height: 360px;
+}
+
+.content__infor {
+  height: 360px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 0;
+  background-color: rgb(64, 70, 91);
+  color: rgb(167, 171, 180);
+  flex-basis: 75%;
+}
+
+.wrapper {
+  padding: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  font-size: 18px;
+}
+
+.item:not(:last-child) {
+  border-bottom: 2px dotted rgb(84, 92, 126);
+}
+
+.content__actions {
+  flex-basis: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart {
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 0;
+  background-color: rgb(95, 82, 125);
+  color: rgb(167, 171, 180);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 20px 45px;
+  flex-basis: 33%;
+}
+
+.checkout {
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 0;
+  background-color: rgb(69, 123, 113);
+  color: rgb(62, 62, 37);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 45px;
+  flex-basis: 33%;
+}
+
+.help {
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 0;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 0;
+  background-color: rgb(128, 90, 80);
+  color: rgb(167, 171, 180);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 45px;
+  flex-basis: 33%;
+}
+
+.checkout-link {
+  background-color: rgb(0, 221, 169);
+  width: 30%;
+  border-radius: 3px;
+  color: rgb(62, 62, 37);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.help-link {
+  background-color: transparent;
+  width: 30%;
+  border-radius: 0;
+  color: rgb(167, 171, 180);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  height: 80px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: 2px solid rgb(79, 83, 102);
+  background-color: rgb(45, 50, 63);
+  color: rgb(79, 83, 102);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}/*# sourceMappingURL=bai12.css.map */

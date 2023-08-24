@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+$color-bg: rgba(51,56,69,255);
+$color-common: rgba(51,56,69,255);
+$color-text-white: rgba(167,171,180,255);
+$color-text-dark: rgba(62,62,37,255);
+$color-light-gray: rgba(79,83,102,255);
+$color-border-item: rgba(84,92,126,255);
+$bg-header: rgba(45,50,63,255);
+$bg-offers: rgba(120,122,78,255);
+$bg-cart: rgba(95,82,125,255);
+$bg-checkout: rgba(69,123,113,255);
+$bg-help: rgba(128,90,80,255);
+$bg-checkout-link: rgba(0,221,169,255);
+
+@mixin flexCommon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin common($height, $marginBottom, $border, $bgColor, $colorText, $textTrans) {
+    height: $height;
+    border-radius: 5px;
+    margin-bottom: $marginBottom;
+    font-size: 16px;
+    text-transform: $textTrans;
+    border: $border;
+    background-color: $bgColor;
+    color: $colorText;
+}
+
+@mixin links($bgColor, $width, $borderRad, $color) {
+    background-color: $bgColor;
+    width: $width;
+    border-radius: $borderRad;
+    color: $color;
+}
+
+body {
+    background-color: $color-bg;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+}
+
+.header {
+    @include common(80px, 16px, 2px solid $color-light-gray, $bg-header, $color-light-gray, uppercase);
+    @include flexCommon;
+}
+
+.offers {
+    @include common(80px, 16px, 0, $bg-offers, $color-text-dark, capitalize);
+    @include flexCommon;
+}
+
+.content {
+    display: flex;
+    gap: 16px;
+    height: 360px;
+}
+
+.content__infor {
+    @include common(360px, 16px, 0, rgba(64,70,91,255), $color-text-white, capitalize);
+    flex-basis: 75%;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 18px; 
+}
+
+.item:not(:last-child) {
+    border-bottom: 2px dotted $color-border-item;
+}
+
+.content__actions {
+    flex-basis: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart {
+    @include common(100px, 16px, 0, $bg-cart, $color-text-white, capitalize);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 20px 45px;
+    flex-basis: 33%;
+}
+
+.checkout {
+    @include common(100px, 16px, 0, $bg-checkout, $color-text-dark, capitalize);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 45px;
+    flex-basis: 33%;
+}
+
+.help {
+    @include common(100px, 0, 0, $bg-help, $color-text-white, capitalize);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 45px;
+    flex-basis: 33%;
+}
+
+.checkout-link {
+    @include links($bg-checkout-link, 30%, 3px, $color-text-dark);
+    @include flexCommon;
+    padding: 8px;
+}
+
+.help-link {
+    @include links(transparent, 30%, 0, $color-text-white);
+    @include flexCommon;
+}
+
+.footer {
+    @include common(80px, 16px, 2px solid $color-light-gray, $bg-header, $color-light-gray, uppercase);
+    @include flexCommon;
+    margin-top: 16px;
+}
