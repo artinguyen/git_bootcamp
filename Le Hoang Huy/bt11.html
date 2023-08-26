@@ -1,73 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>bt11</title>
         <style>
-    .layout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    }
-    .keyboard {
-    background-color: lightgray;
-    width: 95%;
-    border-radius: 10px;
-    height: 50%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    }
-    .line {
-    width: 100%;
-    display: flex;
-    flex-basis: calc(20% - 12px);
-    gap: 4px;
-    justify-content: space-between;
-    }
-    .key {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid #333;
-    }
-    .normal {
-    flex-basis: 6%;
-    font-size: 16px;
-    }
-    .extra-key {
-    flex-basis: 7%;
-    }
-    .key-medium1 {
-    flex-basis: 8%;
-    }
-    .key-medium2 {
-    flex-basis: 13%;
-    }
-    .left-shift {
-    flex-basis: 19%;
-    }
-    .right-shift {
-    flex-basis: 18%;
-    }
-    .caplock {
-    flex-basis: 11%;
-    }
-    .the-space {
-    flex-basis: 45%;
-    }
-    .key:hover {
-    cursor: pointer;
-    background-color: rgb(193, 187, 187);
-    }
+        .layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .keyboard {
+            background-color: lightgray;
+            width: 95%;
+            border-radius: 10px;
+            height: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .line {
+            width: 100%;
+            display: flex;
+            flex-basis: calc(20% - 12px);
+            gap: 4px;
+            justify-content: space-between;
+        }
+        .key {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+        .normal {
+            flex-basis: 6.45%;
+            font-size: 16px;
+        }
+        .caplock{
+            flex-basis: 13%;
+        }
+        .medium {
+            flex-basis: 9%;
+        }
+        .shift {
+            flex-basis: 20%;
+        }
+        .space {
+            flex-basis: 44%;
+        }
+        .key:hover {
+            cursor: pointer;
+            background-color: rgb(193, 187, 187);
+        }
         </style>
     </head>
     <body>
         <div class="layout">
             <div class="keyboard">
-                <div class="line"> 
+                <div class="line">
                     <div class="key normal">~</div>
                     <div class="key normal">1</div>
                     <div class="key normal">2</div>
@@ -81,11 +74,10 @@
                     <div class="key normal">0</div>
                     <div class="key normal">-</div>
                     <div class="key normal">+</div>
-                    <div class="key normal key-medium2">Delete</div>
+                    <div class="key normal medium">Delete</div>
                 </div>
-
                 <div class="line">
-                    <div class="key normal key-medium1">Tab</div>
+                    <div class="key normal medium">Tab</div>
                     <div class="key normal">Q</div>
                     <div class="key normal">W</div>
                     <div class="key normal">E</div>
@@ -98,9 +90,8 @@
                     <div class="key normal">P</div>
                     <div class="key normal">{</div>
                     <div class="key normal">}</div>
-                    <div class="key normal extra-key">\</div>
+                    <div class="key normal">\</div>
                 </div>
-
                 <div class="line">
                     <div class="key normal caplock">Caps Lock</div>
                     <div class="key normal">A</div>
@@ -115,10 +106,10 @@
                     <div class="key normal">:</div>
                     <div class="key normal">'</div>
                     <div class="key normal">"</div>
-                    <div class="key normal key-medium2">Return</div>
+                    <div class="key normal medium">Return</div>
                 </div>
                 <div class="line">
-                    <div class="key normal left-shift">Shift</div>
+                    <div class="key normal shift">Shift</div>
                     <div class="key normal">Z</div>
                     <div class="key normal">X</div>
                     <div class="key normal">C</div>
@@ -131,14 +122,14 @@
                     <div class="key normal">?</div>
                     <div class="key normal">,</div>
                     <div class="key normal">.</div>
-                    <div class="key normal right-shift">Shift </div>
+                    <div class="key normal shift">Shift</div>
                 </div>
                 <div class="line">
-                    <div class="key normal key-medium1">Ctrl</div>
+                    <div class="key normal">Ctrl</div>
                     <div class="key normal">Alt</div>
-                    <div class="key normal key-medium1">Command</div>
-                    <div class="key normal the-space">Space</div>
-                    <div class="key normal key-medium1">Command</div>
+                    <div class="key normal medium">Command</div>
+                    <div class="key normal space">Space</div>
+                    <div class="key normal medium">Command</div>
                     <div class="key normal">Alt</div>
                     <div class="key normal">Ctrl</div>
                     <div class="key normal">Fn</div>
