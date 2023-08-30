@@ -13,3 +13,14 @@ for (var i = 0; i < arr.length; i++) {
 
 console.log(arrSoChan)
 console.log(arrSoLe)
+
+
+// Tinh tong
+
+var sum = 0;
+
+for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+}
+
+console.log("Tong cua mang la " + sum);
