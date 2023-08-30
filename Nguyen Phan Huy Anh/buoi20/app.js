@@ -11,8 +11,8 @@ for (var i = 0; i < arr.length; i++) {
     }
 }
 
-console.log(arrSoChan)
-console.log(arrSoLe)
+console.log("Mang so chan " , arrSoChan)
+console.log("Mang so le ", arrSoLe)
 
 
 // Tinh tong
@@ -64,8 +64,8 @@ for (var x = 1; x <= 10; x++) {
 
 // Tim so lon nhat giua 2 mang
 
-var arr1 = [1, 2 ,3];
-var arr2 = [5,6,7,8];
+var arr1 = [1, 2, 3];
+var arr2 = [5, 6, 7, 8];
 
 var maxArr1 = sapXepTangDan(arr1)[arr1.length - 1]
 var maxArr2 = sapXepTangDan(arr2)[arr2.length - 1]
@@ -81,5 +81,3 @@ function soSanh(number1, number2) {
 }
 
 console.log("So lon nhat cua 2 mang la " + soSanh(maxArr1, maxArr2))
-
-
