@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        /*
+        Các phương thức của mảng
+        */
+        var arr = [1, 3, 4, 5, 7, 8, 12, 100];
+        // Thuộc tính length: độ dài của mảng (hoặc có bao nhiêu phần tử trong mảng)
+        //console.log(arr.length); // 5 -> có 5 phần tử
+
+        // Phương thức push(): dùng thêm 1 phần tử vào trong mảng, thêm vào vị trí cuối cùng
+        //arr.push(8);
+        //console.log(arr);
+
+        // Phương thức pop(): dùng để bỏ 1 phần tử ra khỏi mảng, xóa phần tử ở vị trí cuối
+        //arr.pop(7);
+        //console.log(arr);
+
+        // for(var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+        // Bài tập nhỏ 1:
+        // Tìm tập hợp 1 mảng  số chẵn và 1 mảng số lẽ từ 1 mảng số có sẵn
+        // Sau đó in ra 2 mảng chẵn và lẻ
+
+        // Phương thức toString(): dùng để chuyển mảng thành chuỗi bao gồm dấu phẩy
+        //console.log(arr.toString());
+
+        // Phương thức join(dau_phan_cach): dùng để chuyển mảng thành chuỗi, khác với phương thức toString là có thể thêm vào
+        // dấu phân cách
+        //console.log(arr.join('+'));
+
+        // Phương thức shift(): dùng để bỏ 1 phần tử trong mảng ra, khác với pop() là sẽ bỏ phần tử ở vị trí đầu
+        //arr.shift()
+        //console.log(arr);
+
+        // Phương thức unshift(): dùng để thêm 1 phần tử vào mảng, khác với push(), là thêm vào vị trí đầu
+        //arr.unshift(111);
+        //console.log(arr);
+        
+        // Bài tập nhỏ 2:
+        // Yêu cầu: Tính tổng các giá trị bên trong mảng, sau đó xuất ra tổng cộng là bao nhiêu
+        // Ví dụ arr[1, 2] -> 3, arr[10, 50] -> 60
+        /* Gợi ý:
+        Bước 1: tạo 1 biến để lưu trữ giá trị
+        Bước 2: xử lý trong vòng lặp, lấy biến vừa tạo + với giá trị của mảng khi duyệt qua
+        */
+        // Bài tập nhỏ 3: 
+        // Yêu cầu: Tìm số lớn nhất trong mảng
+        // Ví dụ arr[2, 3, 1] -> 3
+        /* Gợi ý:
+        Bước 1: tạo 1 biến để lưu trữ giá trị
+        Bước 2: so sánh, nếu giá trị vừa khởi tạo < giá trị phần tử bên trong mảng thì gán giá trị của biến vừa tạo
+        bằng với giá trị của phần tử trong mảng
+        */
+
+        /* Bài tập nhỏ 4:
+        // Viết hàm xuất ra bảng cửu chương khi truyền vào giá trị bất kỳ
+        // Ví dụ:
+        // Khi truyền vào số 2 vào hàm sẽ in ra kết quả như sau:
+            2 x 1 = 2
+            2 x 2 = 4
+            2 x 3 = 6
+            2 x 4 = 8
+            2 x 5 = 10
+            2 x 6 = 12
+            2 x 7 = 14
+            2 x 8 = 16
+            2 x 9 = 18 
+        */
+
+        // Bài tập nhỏ 5: 
+        // Tìm số lớn nhất trong 2 mảng
+        // Ví dụ arr1 = [2, 3], arr2 = [1, 5] -> Kết quả xuất ra là 5
+
+        // Bài tập nhỏ 6:
+        // Tính tổng số đầu tiên và số cuối cùng trong mảng
+        // Ví dụ arr = [2, 3, 5] -> Kết quả là 7
+
+        // Bài tập nhỏ 7:
+        // Tạo hàm để kiểm tra xem 1 số nhập vào từ hộp thoại có phải là số lẻ hay không
+        // Ví dụ khi load trang web, xuất hiện 1 hộp thoại có ô nhập, khi người dùng nhập vào 1 số
+        // thì kiểm tra xem đó có phải là số lẽ hay không rồi xuất ra
+
+        // Bài tập nhỏ số 8:
+        // Sắp xếp 1 mảng theo thứ tự tăng dần từ 1 mảng ngẫu nhiên
+        // Ví dụ arr = [2, 3, 1] -> Kết quả sẽ là [1, 2, 3]
+
+
+    </script>
+</head>
+<body>
+<p id="text">Paragraph</p>
+<button onclick="changeText()">Thay đổi chữ</button>
+<script>
+    // Truy cập vào thành phần trong html
+    // Cách truy cập thứ 1: bằng ID
+    var x = document.getElementById('text');
+    // Lấy ra nội dung của text của thành phần
+    // Dùng thuộc tính innerText
+    //console.log(x.innerText);
+
+    // Gán lại nội dung cho thành phần đó
+    //x.innerText = 'Hello world'
+
+    // Sự kiện : người dùng tương tác với thành phần trên html
+    // Ví dụ onclick: khi người dùng nhấn vào thành phần
+    // ondblclick: khi người dùng nhấn 2 lần vào thành phần
+
+    // Các dạng hộp thoại
+    // 1. alert('Noidung') -> Hiển thị thông báo kèm theo nội dung
+    // Ví dụ 
+    // alert('Bạn đã đăng ký thành công');
+    
+    // 2. prompt: hiển thị 1 hộp thoại, gồm input để nhập lấy thông tin
+    //console.log(prompt('Vui lòng nhập số'));
+    //var x = prompt('Vui lòng nhập số');
+    //console.log(x);
+
+    // 3. confirm: hiển thị thông báo, và 2 nút là cancel và ok
+    //var x = confirm('Bạn muốn hủy hay không');
+    //console.log(x);
+
+    // Gán hàm vào sự kiện onclick
+    // function xuat() {
+    //     console.log('Hello world');
+    // }
+
+    // Tạo 1 sự kiện khi click vào button sẽ thay đổi nội dung của đoạn text
+    // Bước 1: Tạo sự kiện click và hàm tương ứng để gọi
+    // Bước 2: Truy cập thành phần p
+    // Bước 3: Gán lại nội dung cho thẻ p
+
+    function changeText() {
+        var x = document.getElementById('text');
+        x.innerText = 'Hello world';
+    }
+
+    /*
+    1. Mảng, thuộc tính lenght và các phương thức
+    2. DOM: dùng tương tác với thành phần của html
+    3. Sự kiện
+    */
+
+    // Bài tập về tạo giao diện máy tính và tính toán
+    // Không sử dụng eval();
+</script>
+</body>
+</html>
