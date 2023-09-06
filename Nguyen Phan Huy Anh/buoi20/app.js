@@ -57,14 +57,12 @@ console.log("So nho nhat la " + arr[0])
 // Bang cuu chuong
 
 function bangCuuChuong(number) {
-    for (var x = 1; x <= number; x++) {
-        for (var y = 1; y <= number; y++) {
-            console.log(x + ' x ' + y + ' = ' + x * y);
-        }
+    for (var x = 1; x <= 10; x++) {
+        console.log(number + ' x ' + x + ' = ' + number*x)
     }
 }
 
-console.log(bangCuuChuong(2))
+bangCuuChuong(2)
 
 // Tim so lon nhat giua 2 mang
 
