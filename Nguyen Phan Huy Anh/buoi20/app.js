@@ -56,11 +56,15 @@ console.log("So nho nhat la " + arr[0])
 
 // Bang cuu chuong
 
-for (var x = 1; x <= 10; x++) {
-    for (var y = 1; y <= 10; y++) {
-        console.log(x + ' x ' + y + ' = ' + x * y);
+function bangCuuChuong(number) {
+    for (var x = 1; x <= number; x++) {
+        for (var y = 1; y <= number; y++) {
+            console.log(x + ' x ' + y + ' = ' + x * y);
+        }
     }
 }
+
+console.log(bangCuuChuong(2))
 
 // Tim so lon nhat giua 2 mang
 
@@ -81,3 +85,9 @@ function soSanh(number1, number2) {
 }
 
 console.log("So lon nhat cua 2 mang la " + soSanh(maxArr1, maxArr2))
+
+
+// Bai 7
+
+
+prompt('Hello')
