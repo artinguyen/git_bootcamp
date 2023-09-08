@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="screen">
+                <p class="prevResult"></p>
+                <p class="curResult"></p>
+            </div>
 
-    <script src="app.js"></script>
-</body>
+            <table class="keyBox">
+                <tbody>
+                    <tr>
+                        <td id="key" class="key">7</td>
+                        <td id="key" class="key">8</td>
+                        <td id="key" class="key">9</td>
+                        <td id="keyFunc" class="key">÷</td>
+                    </tr>
+                    <tr>
+                        <td id="key" class="key">4</td>
+                        <td id="key" class="key">5</td>
+                        <td id="key" class="key">6</td>
+                        <td id="keyFunc" class="key">×</td>
+                    </tr>
+                    <tr>
+                        <td id="key" class="key">1</td>
+                        <td id="key" class="key">2</td>
+                        <td id="key" class="key">3</td>
+                        <td id="keyFunc" class="key">−</td>
+                    </tr>
+                    <tr>
+                        <td id="key" class="key">0</td>
+                        <td id="keyFuncDelete" class="key">C</td>
+                        <td id="keyFuncEqal" class="key equal">=</td>
+                        <td id="keyFunc" class="key">+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="app.js"></script>
+        <script src="calculator.js"></script>
+    </body>
 </html>

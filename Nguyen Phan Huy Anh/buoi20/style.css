@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    margin: auto;
+    width: 600px;
+    height: 400px;
+}
+
+.screen {
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid lightgray
+    ;
+    height: 80px;
+    border-radius: 12px;
+}
+
+.keyBox {
+    width: 100%;
+    border-spacing: 8px;
+}
+
+.key {
+    border-radius: 5px;
+    color: #333;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#key {
+    background-color: #f1f3f4;
+}
+
+#keyFunc {
+    background-color: #dadce0;
+}
+
+#keyFuncDelete {
+    background-color: #dadce0;
+}
+
+#keyFuncEqal.equal {
+    background-color: #4285f4;
+    color: #fff;
+}
+
+
+.screen p {
+    text-align: right;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+}
+
+.curResult {
+    flex: 3;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.prevResult {
+    flex: 1;
+    font-size: 14px;
+}
