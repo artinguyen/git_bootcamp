@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>cau 1: trong phep chia 24 : 3= 8, so bi chia cua phep chia la:</h1>
+    <ul>
+        <li><input type="radio" name="cau1" value="24">A: 24</li>
+        <li><input type="radio" name="cau1"  value="3">B: 3</li>
+        <li><input type="radio" name="cau1"  value="8">C: 8</li>
+        <li><input type="radio" name="cau1"  value="0">D: 0</li>
+    </ul>
+    <h2> cau 2: tinh</h2>
+    <p>a) 12 : 2 + 49 - 12 =</p>
+    <input type="text" name="cau2" id="cau2">  <br>
+    <button onclick="check()">SEND</button>
+    <script>
+        function check () {
+            var cau1 = document.getElementsByName("cau1");
+            var traloidung = 0;
+            for(var i = 0; i < cau1.length; i++) {
+                console.log(cau1[i].value);
+                if(cau1[i].checked === true && cau1[i].value == 24) {
+                    traloidung++;
+                }
+            }
+            var cau2 = document.getElementById('cau2');
+            if (cau2.value == "43") {
+                traloidung++;
+            }
+            console.log('ban da tra loi dung' + traloidung);
+            alert ('ban da tra loi dung' + traloidung);
+        }
+    </script>
+</body>
+</html>
