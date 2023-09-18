@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>b20</title>
+        <script>
+            var arr=[1,2,3,4,5,6,9]
+           //chan le
+           var sochan=[];
+           var sole=[];
+           for(var i=0; i<=arr.length; i++){
+            if(arr[i] %2 == 0){
+                sochan.push(arr[i])
+                console.log(sochan+' la so chan')
+            } else{
+                sole.push(arr[i])
+                console.log(sole+' la so le')
+            }
+            //tinh tong
+
+            }
+            var tong=0;
+            for(var i=0; i<=arr.length; i++) {
+                
+                tong += arr[i]; 
+                console.log('tong='+ tong)
+            }
+            //tim max
+            var max=0;
+            for(var i=0; i<=arr.length; i++){
+                if( max < arr[i]){
+                max = arr[i];}
+            }
+            console.log('max la'+max)
+            // tim min
+            var min= 20000;
+            
+            for( var i=0; i<= arr.length; i++){
+             if( min> arr[i]){
+                 min= arr[i];
+                }
+            }
+            console.log('min la'+' ' +min)
+            //bang cuu chuong
+            function bcc(a){
+               for(i=1; i<=9; i++) {
+                var b= a*i;
+                console.log(a +' x'+ i +'='+b )
+               }
+            }
+            bcc(2)
+            //tim so lon nhat trong 2 mang
+            arr1 =[1,2,3]
+            arr2 =[4,5,6]
+            var max1=0;
+            for(var i=0; i<=arr1.length; i++){
+                if( max1 < arr1[i]){
+                max1 = arr1[i];}
+            }
+            var max2=0;
+            for(var i=0; i<=arr2.length; i++){
+                if( max2 < arr2[i]){
+                max2= arr2[i];}
+            }
+            if( max1 > max2){
+                console.log( 'max ='+ max1)
+            }else{ console.log('max ='+max2)}
+           // tinh tong so dau va so cuoi trong mang
+           var x= arr[0] + arr[6];
+           console.log('tong='+x)
+           // Tạo hàm để kiểm tra xem 1 số nhập vào từ hộp thoại có phải là số lẻ hay không
+           var X = prompt('Vui lòng nhập số')
+           if( X%2==0){
+            console.log(X+' ko la so le')
+           }else{console.log(X+'la so le')}
+           //Sắp xếp 1 mảng theo thứ tự tăng dần từ 1 mảng ngẫu nhiên
+           function mang(arr3=[]){
+            for(var i=0;i<=arr.length; i++){
+                if
+            }
+
+           }
+
+
+           
+           
+        </script>
+    </head>
+    <body>
+        <script>
+        console.log(prompt('Vui lòng nhập số'));
+        var X = prompt('Vui lòng nhập số');
+        console.log(X);
+        </script>
+        
+
+    </body>
+</html>
