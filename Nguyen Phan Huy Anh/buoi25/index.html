@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        .err {
+            color: red;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <form action="#" id="form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="username"
+                    />
+                </div>
+                <div class="input-group">
+                    <label for="password">password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="password"
+                    />
+                </div>
+                <input type="submit" value="Submit" />
+            </form>
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <script src="app.js"></script>
+    </body>
+</html>

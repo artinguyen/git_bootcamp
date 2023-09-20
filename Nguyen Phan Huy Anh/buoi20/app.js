@@ -62,7 +62,7 @@ function bangCuuChuong(number) {
     }
 }
 
-bangCuuChuong(2)
+bangCuuChuong(10)
 
 // Tim so lon nhat giua 2 mang
 
@@ -86,6 +86,3 @@ console.log("So lon nhat cua 2 mang la " + soSanh(maxArr1, maxArr2))
 
 
 // Bai 7
-
-
-prompt('Hello')
