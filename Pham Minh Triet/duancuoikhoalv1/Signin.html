@@ -19,6 +19,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
     <div class="to">
@@ -29,7 +30,7 @@
         <label>Số điện thoại</label>
         <input type="text" name="phonenumber" id="phonenumber"/>
         <label style="margin-left: -180px">Email</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" id="email"/>
         <div class="sex">
             <label style="margin-left: 1px;">Giới tính</label> 
             <input type="radio" name="sex" id="sex">Nam
@@ -46,5 +47,51 @@
         <input id="submit" type="submit" name="submit" value="Đăng Ký"/>
       </div>
     </div>
+    <script>
+    $("#submit").click(function() {
+    var name = $("#name");
+    var phonenumber = $("#phonenumber");
+    var email = $("#email");
+    var nameuser = $("#nameuser");
+    var password = $("#password");
+    var confirmpassword = $("#confirmpassword");
+
+    // Xóa thông báo lỗi cũ
+    $(".error").remove();
+
+    if (name.val().length < 4) {
+        name.after('<span class="error">Tên phải có ít nhất 4 ký tự</span>');
+        return false;
+    }
+
+    if (phonenumber.val().length != 11 || phonenumber.val().charAt(0) != '0') {
+        phonenumber.after('<span class="error">Số điện thoại phải có 11 ký tự và bắt đầu bằng số 0</span>');
+        return false;
+    }
+
+    if (!email.val().includes("@") || !email.val().endsWith(".com")) {
+        email.after('<span class="error">Email phải chứa ký tự @ và kết thúc bằng .com</span>');
+        return false;
+    }
+
+    if (nameuser.val().length < 5) {
+        nameuser.after('<span class="error">Tên người dùng phải có ít nhất 5 ký tự</span>');
+        return false;
+    }
+
+    if (password.val().length != 8 || !/[A-Z]/.test(password.val()) || !/\W/.test(password.val())) {
+        password.after('<span class="error">Mật khẩu phải có 8 ký tự, bao gồm ít nhất một ký tự in hoa và một ký tự đặc biệt</span>');
+        return false;
+    }
+
+    if (password.val() != confirmpassword.val()) {
+        confirmpassword.after('<span class="error">Mật khẩu xác nhận không khớp với mật khẩu đã nhập</span>');
+        return false;
+    }
+
+    alert("Đăng ký thành công!");
+});
+
+    </script>
   </body>
 </html>

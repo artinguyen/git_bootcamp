@@ -18,7 +18,7 @@ body {
     border: 1px solid #80808000;
     grid-column: 6/9;
     grid-row: 3;
-    height: 660px;
+    height: 800px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -38,7 +38,6 @@ label {
     margin-left: -126px;
     display: block;
     font-weight: lighter;
-
 } 
 input{
     background-color: #b0d4b8;
@@ -78,3 +77,8 @@ input#submit {
 input#submit:hover{
     background: linear-gradient(to right, #97dbdf, #42b5be); 
 }
+.error {
+    color: red;
+    font-size: 12px;
+  }
+  
