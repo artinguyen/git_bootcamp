@@ -13,38 +13,34 @@
             });
         </script>
         <style>
-            table, th, td{
+            table{
                 margin: auto;
                 width:30%;
-                height:70px;
-            }
-            table{
-                border-collapse:collapse;
-            }
-            table tr:nth-child(odd){
-                background-color:#39373724;
-            }
-            table tr:nth-child(even){
-                background-color:white;
+                height:60px;        
             }
             table tr:nth-child(8){
-                background-color:skyblue;
                 text-align: center;
                 border: 0px;
             }
             h1{
                 text-align: center;
-                border: 0px;
             }
-            th{
-                font-size: larger;
-                text-align:right;
+            h3{
+                text-align:left;
             }
-            input, button{
-                border: 1x; 
-                font-size:larger;   
+            input{
+                width:99%;
+                height: 40px;   
+                background-color: rgb(197, 197, 197);
             }
-            
+            button{
+                background-color: aqua;
+                width:101%;
+                height:60px;
+            }
+            h3, h1{
+                margin: 10px;
+            }
         </style>
        
     </head>
@@ -55,49 +51,49 @@
                     <th colspan="2"><h1> Đăng Ký</h1> </th>
                 </tr>
                 <tr>
-                    <th>Tên đăng nhập: </th>
                     <td>
+                        <h3 colspan="2">Tên đăng nhập: </h3>
                         <input type="text" name="username" id="username" value="" /><br>
                         <span id="username_error"></span>
                     </td>
                 </tr>
-                <tr>
-                    <th>Mật khẩu: </th>
+                <tr>                
                     <td>
+                        <h3 colspan="2">Mật khẩu:</h3>
                         <input type="password" name="password" id="password" value="" /><br>
                         <span id="password_error"></span>
                     </td>
                 </tr>
-                <tr>
-                    <th>Nhập lại mật khẩu: </th>
+                <tr>                   
                     <td>
+                        <h3 colspan="2">Nhập lại mật khẩu:</h3>
                         <input type="password" name="re-password" id="re_password" value="" /><br>
                         <span id="re_password_error"></span>
                     </td>
                 </tr>
-                <tr>
-                    <th>Email: </th>
+                <tr>  
                     <td>
+                        <h3 colspan="2">Email:</h3>
                         <input type="text" name="email" id="email" value="" /><br>
                         <span id="email_error"></span>
                     </td>
                 </tr>
-                <tr>
-                    <th>tên người dùng: </th>
+                <tr>                
                     <td>
+                        <h3 colspan="2">tên người dùng:</h3>
                         <input type="text" name="name" id="name" value="" /><br>
                         <span id="name_error"></span>
                     </td>
                 </tr>
-                <tr>
-                    <th>SĐT: </th>
+                <tr>        
                     <td>
+                        <h3 colspan="2">SĐT:</h3>
                         <input type="number" name="SDT" id="SDT" value="" /><br>
                         <span id="SDT_error"></span>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button onclick="add()" name="register" id="register">Đăng Ký</button></td>
+                    <td colspan="2"><button onclick="add()" name="register" id="register"><h2>Đăng Ký</h2></button></td>
                 </tr>
             </table>
         </form> 
@@ -164,8 +160,6 @@
                     $('#SDT_error').text('');
                 }
                 return flag;
-
-
             });
                 
         })
@@ -189,7 +183,6 @@
                     email: 'email',
                     name : 'name',
                     SDT : 'SDT',
-
                 }
                 objectstore.add(obj);
             }
@@ -202,8 +195,7 @@
                 var request=db.transaction(["user"],"readwrite");
                 request =request.objectStore("user");
                 request =request.add({ username:username, password:password, email:email, name:name, SDT:SDT });
-                request.onsuccess= function(event){
-                    
+                request.onsuccess= function(event){                    
                 };
                 request.onerror= function(event){
                     alert("error ")
