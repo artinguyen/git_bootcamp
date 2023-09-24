@@ -3,6 +3,7 @@
     padding:0;
     border:none;
     font-family: 'Open Sans', sans-serif;
+    color: #d7eae5;
 }
 body {
     overflow: hidden;
@@ -30,6 +31,7 @@ body {
 }
 
 h2 {
+    font-size: 50px;
     margin-top: 50px;
     margin-bottom: 30px;
 }
@@ -51,34 +53,40 @@ input[type="text"] {
     width: 70%;
 }
 .sex {
-    border-bottom: 2px solid #00BCD4;
+    /* border-bottom: 2px solid #00BCD4; */
     width: 220px;
+    
 }
 
 input[type="radio"] {
     left: 50px;
     width: 20%;
+
 }
 input[type="password"] {
     width: 220px;
     height: 30px;
 }
 
-input#submit {
+.submit {
     padding: 7px;
     width: 50%;
     border-radius: 10px;
     border: none;
+    color: black;
+    font-weight: 900;
+    font-size: 20px;
     position: absolute;
     bottom: 10px;
     cursor: pointer;
     background: linear-gradient(to right, #d7eae5, #64c7cd);
 }
-input#submit:hover{
+.submit:hover{
+    width: 60%;
+    font-size: 30px;
+    color: #ffffff;
     background: linear-gradient(to right, #97dbdf, #42b5be); 
 }
-.error {
-    color: red;
-    font-size: 12px;
+.error-input {
+    border: 1px solid red;
   }
-  

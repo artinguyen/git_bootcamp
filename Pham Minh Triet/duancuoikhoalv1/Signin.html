@@ -26,72 +26,136 @@
       <div class="form">
         <h2>Đăng ký</h2>
         <label style="margin-left: -150px">Họ và tên</label>
-        <input type="text" name="name" id="name"/>
+        <input type="text" name="name" id="name" />
+        <span id="nameError" class="error"></span>
         <label>Số điện thoại</label>
-        <input type="text" name="phonenumber" id="phonenumber"/>
+        <input type="text" name="phonenumber" id="phonenumber" />
+        <span id="phonenumberError" class="error"></span>
         <label style="margin-left: -180px">Email</label>
-        <input type="text" name="email" id="email"/>
+        <input type="text" name="email" id="email" />
+        <span id="emailError" class="error"></span>
         <div class="sex">
-            <label style="margin-left: 1px;">Giới tính</label> 
-            <input type="radio" name="sex" id="sex">Nam
-            <input type="radio" name="sex" id="sex">Nữ
+          <label style="margin-left: 1px">Giới tính</label>
+          <input type="radio" name="sex" id="sex" value="male" />Nam
+          <input type="radio" name="sex" id="sex" value="female" />Nữ
         </div>
-        <label style="margin-left: -100px;">Tên người dùng</label>
-        <input type="text" name="nameuser" id="nameuser">
+        <label style="margin-left: -100px">Tên người dùng</label>
+        <input type="text" name="nameuser" id="nameuser" />
+        <span id="nameuserError" class="error"></span>
         <div class="form-pass">
-            <label style="margin-left: 0px;">Mật khẩu</label>
-            <input type="password" name="password" id="password">
-            <label style="margin-left: 0px;">Xác nhận mật khẩu</label>
-            <input type="password" name="confirmpassword" id="confirmpassword">
+          <label style="margin-left: 0px">Mật khẩu</label>
+          <input type="password" name="password" id="password" />
+          <span id="passwordError" class="error"></span>
+          <label style="margin-left: 0px">Xác nhận mật khẩu</label>
+          <input type="password" name="confirmpassword" id="confirmpassword" />
+          <span id="confirmpasswordError" class="error"></span>
         </div>
-        <input id="submit" type="submit" name="submit" value="Đăng Ký"/>
+        <input onclick="validateForm()" class="submit" type="submit" value="Đăng Ký" />
       </div>
     </div>
     <script>
-    $("#submit").click(function() {
-    var name = $("#name");
-    var phonenumber = $("#phonenumber");
-    var email = $("#email");
-    var nameuser = $("#nameuser");
-    var password = $("#password");
-    var confirmpassword = $("#confirmpassword");
+      function validateForm() {
+        let nameInput = document.getElementById("name").value;
+        let emailInput = document.getElementById("email").value;
+        let phoneNumberInput = document.getElementById("phonenumber").value;
+        let sexInputs = document.getElementsByName("sex");
+        let usernameInput = document.getElementById("nameuser").value;
+        let passwordInput = document.getElementById("password").value;
+        let confirmPasswordInput = document.getElementById("confirmpassword").value;
 
-    // Xóa thông báo lỗi cũ
-    $(".error").remove();
+        // Xóa thông báo lỗi cũ
+        clearErrors();
 
-    if (name.val().length < 4) {
-        name.after('<span class="error">Tên phải có ít nhất 4 ký tự</span>');
-        return false;
-    }
+        // Kiểm tra tính hợp lệ của ô #name
+        if (nameInput.trim() === "") {
+          displayError("nameError", "Họ và tên không được bỏ trống.");
+          return false;
+        } else if (nameInput.length < 5) {
+          displayError("nameError", "Họ và tên phải có ít nhất 5 ký tự.");
+          return false;
+        }
 
-    if (phonenumber.val().length != 11 || phonenumber.val().charAt(0) != '0') {
-        phonenumber.after('<span class="error">Số điện thoại phải có 11 ký tự và bắt đầu bằng số 0</span>');
-        return false;
-    }
+        // Kiểm tra tính hợp lệ của ô #phonenumber
+        if (phoneNumberInput.trim() === "") {
+          displayError("phonenumberError", "Số điện thoại không được bỏ trống.");
+          return false;
+        } else if (phoneNumberInput.length < 10 || phoneNumberInput.length > 12 || phoneNumberInput.charAt(0) !== "0") {
+          displayError("phonenumber", "Số điện thoại không hợp lệ.");
+          return false;
+        };
 
-    if (!email.val().includes("@") || !email.val().endsWith(".com")) {
-        email.after('<span class="error">Email phải chứa ký tự @ và kết thúc bằng .com</span>');
-        return false;
-    }
+        // Kiểm tra tính hợp lệ của ô #email
+        if (emailInput.trim() === "") {
+           displayError("emailError", "Email không được bỏ trống.");
+           return false;
+        } else if (!emailInput.includes("@") || !emailInput.includes(".com")) {
+           displayError("emailError", "Email không hợp lệ.");
+           return false;
+         };
 
-    if (nameuser.val().length < 5) {
-        nameuser.after('<span class="error">Tên người dùng phải có ít nhất 5 ký tự</span>');
-        return false;
-    }
+         // Kiểm tra tính hợp lệ của ô #sex
+        var selectedSex = false;
+        for (var i = 0; i < sexInputs.length; i++) {
+          if (sexInputs[i].checked) {
+            selectedSex = true;
+            break;
+          }
+        }
+        if (!selectedSex) {
+          displayError("sexError", "Vui lòng chọn giới tính.");
+          return false;
+        }
+      
+        // Kiểm tra tính hợp lệ của ô #nameuser
+        if (usernameInput.trim() === "") {
+          displayError("nameuserError", "");
+          return false;
+        } else if (usernameInput.length < 6) {
+          displayError("nameuserError", "Tên người dùng phải có ít nhất 6 ký tự.");
+          return false;
+        }
 
-    if (password.val().length != 8 || !/[A-Z]/.test(password.val()) || !/\W/.test(password.val())) {
-        password.after('<span class="error">Mật khẩu phải có 8 ký tự, bao gồm ít nhất một ký tự in hoa và một ký tự đặc biệt</span>');
-        return false;
-    }
+        // Kiểm tra tính hợp lệ của ô #password
+        if (passwordInput.trim() === "") {
+          displayError("passwordError", "Mật khẩu phải có ít nhất 8 ký tự.");
+          return false;
+        } else if(passwordInput.length < 8 || !/[A-Z]/.test(passwordInput) || !/[a-z]/.test(passwordInput) || !/[@#$&]/.test(passwordInput) || !/\d/.test(passwordInput)) {
+          displayError("passwordError", "Mật khẩu không đáp ứng yêu cầu bảo mật. Mật khẩu phải có chứa ít nhất 8 ký tự, chứa ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự đặt biệt trong dãy (@#$&) và 1 ký tự số.");
+        }
 
-    if (password.val() != confirmpassword.val()) {
-        confirmpassword.after('<span class="error">Mật khẩu xác nhận không khớp với mật khẩu đã nhập</span>');
-        return false;
-    }
+        // Kiểm tra tính hợp lệ của ô #confirmpassword
+        if (confirmPasswordInput !== passwordInput) {
+          displayError("confirmpasswordError", "Mật khẩu xác nhận không khớp.");
+          return false;
+        }
 
-    alert("Đăng ký thành công!");
-});
+        // nếu tất cả hợp lệ thì hiện alert dk thành công
+        alert(" Chúc mừng bạn đả đăng ký thành công!");
+        return true;
+      }
 
+      function displayError(elementId, errorMessage) {
+      var errorElement = document.getElementById(elementId);
+      errorElement.innerText = errorMessage;
+      errorElement.style.display = "block";
+      errorElement.style.color = "red";
+      errorElement.style.marginTop = "5px";
+      errorElement.style.fontSize = "14px";
+
+  // Tìm ô input tương ứng
+      var inputElement = document.getElementById(elementId.replace("Error", ""));
+       if (inputElement) {
+       inputElement.classList.add("error-input");
+       }
+}
+
+      function clearErrors() {
+        var errorElements = document.getElementsByClassName("error");
+        for (var i = 0; i < errorElements.length; i++) {
+          errorElements[i].innerText = "";
+          errorElements[i].style.display = "none";
+        }
+      }
     </script>
   </body>
 </html>
