@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>last exam</title>
+        <title> trang đăng ký </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -133,7 +133,7 @@
                     $('#re_password_error').text('');
                 }
                 // Email
-                if (email.length<=2) {
+                if (!email.includes("@") || !email.includes(".com")) {
                     $('#email_error').text('Email không đúng định dạng').css('color','red');
                     flag = false;
                 }
@@ -152,13 +152,18 @@
                     $('#name_error').text('');
                 }
                 // SDT
-                if (SDT.length != 11){
+                if (SDT.length != 11 ){
+                    $('#SDT_error').text('SDT ko dung ').css('color','red');
+                    flag = false;
+                }
+                else if(SDT.charAt(0) !== "0" ){
                     $('#SDT_error').text('SDT ko dung ').css('color','red');
                     flag = false;
                 }
                 else{
                     $('#SDT_error').text('');
                 }
+
                 return flag;
             });
                 
@@ -201,7 +206,6 @@
                     alert("error ")
                 }
             }
-
         </script>
     </body>
 </html>
