@@ -4,9 +4,7 @@
     border:none;
     font-family: 'Open Sans', sans-serif;
 }
-body {
-    overflow: hidden;
-}
+
 .to {
     display: grid;
     grid-template-columns: repeat(12,1fr);
