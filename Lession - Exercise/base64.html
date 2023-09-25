@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>
+        How to convert image into base64 string using JavaScript ?
+    </title>
+</head>
+ 
+<body>
+    <input type="file" name="" id="fileId" onchange="imageUploaded()">
+    <img src="">
+    <br><br>
+    <script>
+        let base64String = "";
+        var db;
+        // Khởi tạo DB
+        var request = window.indexedDB.open("newDatabase1", 1);
+        // Tạo đối tượng để lưu trữ
+        request.onupgradeneeded = function(event) {
+            var db = event.target.result;
+            var objectStore = db.createObjectStore("employee", {autoIncrement: true });
+        }
+        request.onerror = function(event) {
+            console.log("error: ");
+        };
+        request.onsuccess = function(event) {
+            db = request.result;
+            console.log("success: "+ db);
+        };
+        function imageUploaded() {
+            let file = document.getElementById('fileId')['files'][0];
+            let reader = new FileReader();
+            reader.onload = function () {
+            base64String = reader.result;
+            console.log(base64String);
+            // Lưu trữ vào indexdb
+            var request = db.transaction(["employee"], "readwrite");
+            // Lấy ra đối tượng cần lưu trữ
+            request = request.objectStore("employee");
+            // Thêm vào employee, sử dụng phương thức add()
+            request = request.add({ name: '1', age: '1', img: base64String });
+            }
+            reader.readAsDataURL(file); 
+        }
+ 
+
+    </script>
+</body>
+</html>

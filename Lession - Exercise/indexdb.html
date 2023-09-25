@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+<style>
+    h1{
+        padding: 0;
+        margin:0;
+    }
+</style>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+<h1>Name</h1>
+<input type="text" id="name">
+<br>
+<h1>Age</h1>
+<input type="text" id="age">
+<br>
+<h1>Email</h1>
+<input type="text" id="email">
+<br>
+<button onclick = "read()">Read </button>
+      <button onclick="readAll()">Read all </button>
+      <button onclick="add()">Add data </button>
+      <button onclick="remove()">Delete data </button>
+      <button onclick="update()">Update data </button>
+<script>
+
+// if (!('indexedDB' in window)) {
+//   console.log("This browser doesn't support IndexedDB");
+//   return;
+// }
+
+// if (!window.indexedDB) {  
+//     console.log(` Your browser does not accept IndexedDB`);  
+//     return;  
+// }  
+// Open the database
+//idb.open(name, version, upgradeCallback);
+// let openRequest = indexedDB.open("store", 1);
+// openRequest.onupgradeneeded = function (event) {
+//     console.log(1)
+//   // triggers if the client does not have a database
+//   // initialization
+//   let db_variable = event.target.result;  
+//   console.log(db_variable)
+// };
+// openRequest.onerror = function () {
+//   console.error("Error", openRequest.error);
+// };
+// openRequest.onsuccess = function () {
+//   let db = openRequest.result;
+//   console.log(1)
+//   // continue working with the database using the db object
+// };
+
+// Check for support.
+// if (!('indexedDB' in window)) {
+//   console.log("This browser doesn't support IndexedDB.");
+// }
+//prefixes of implementation that we want to test
+        // window.indexedDB = window.indexedDB || window.mozIndexedDB || 
+        //  window.webkitIndexedDB || window.msIndexedDB;
+         
+        //  //prefixes of window.IDB objects
+        //  window.IDBTransaction = window.IDBTransaction || 
+        //  window.webkitIDBTransaction || window.msIDBTransaction;
+        //  window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || 
+        //  window.msIDBKeyRange
+         
+        //  if (!window.indexedDB) {
+        //     window.alert("Your browser doesn't support a stable version of IndexedDB.")
+        //  }
+         
+        // //  const employeeData = [
+        // //     { id: "00-01", name: "gopal", age: 35, email: "gopal@tutorialspoint.com" },
+        // //     { id: "00-02", name: "prasad", age: 32, email: "prasad@tutorialspoint.com" }
+        // //  ];
+
+        //  const employeeData = [
+        //     { name: "gopal", age: 35, email: "gopal@tutorialspoint.com" },
+        //     { name: "prasad", age: 32, email: "prasad@tutorialspoint.com" }
+        //  ];
+
+        //  var db;
+        //  var request = window.indexedDB.open("newDatabase", 1);
+         
+        //  request.onerror = function(event) {
+        //     console.log("error: ");
+        //  };
+         
+        //  request.onsuccess = function(event) {
+        //     db = request.result;
+        //     console.log("success: "+ db);
+        //  };
+         
+        //  request.onupgradeneeded = function(event) {
+        //     var db = event.target.result;
+        //     //var objectStore = db.createObjectStore("employee", {keyPath: "id"});
+        //     var objectStore = db.createObjectStore("employee", {autoIncrement: true });
+        //     for (var i in employeeData) {
+        //        objectStore.add(employeeData[i]);
+        //     }
+        //  }  
+
+
+        //  function add() {
+        //     // create a new transaction
+        //     //var txn = db.transaction(["employee"], "readwrite");
+        //     // get the Contacts object store
+        //     //const store =  txn.objectStore("employee");
+        //     let name = document.getElementById("name").value;
+        //     let age = document.getElementById("age").value;
+        //     let email = document.getElementById("email").value;
+        //     //store.add({ name: name, age: age, email: email });
+            
+        //     //console.log(store)
+        //     //create a new transaction
+        //     var request = db.transaction(["employee"], "readwrite");
+        //     // Get the Contacts object store
+        //     request = request.objectStore("employee");
+        //     // Add the Contacts object to the
+        //     request = request.add({ name: name, age: age, email: email });
+
+        //     request.onsuccess = function(event) {
+        //        alert("Kenny has been added to your database.");
+        //     };
+            
+        //     request.onerror = function(event) {
+        //        alert("Unable to add data\r\nKenny is aready exist in your database! ");
+        //     }
+        //  }
+
+        //  function remove() {
+        //     // var request = db.transaction(["employee"], "readwrite")
+        //     // .objectStore("employee")
+        //     // .delete("00-03");
+        //     var request = db.transaction(["employee"], "readwrite");
+        //     // Get the Contacts object store
+        //     request = request.objectStore("employee");
+        //     // Remove
+        //     request.delete(1)
+        //     request.onsuccess = function(event) {
+        //        alert("Kenny's entry has been removed from your database.");
+        //     };
+        //  }
+
+        //  function read() {
+        //     //var transaction = db.transaction(["employee"]);
+        //     //var objectStore = transaction.objectStore("employee");
+        //     var request = db.transaction(["employee"]).objectStore("employee").get(2);
+            
+        //     request.onerror = function(event) {
+        //        alert("Unable to retrieve daa from database!");
+        //     };
+            
+        //     request.onsuccess = function(event) {
+        //        // Do something with the request.result!
+        //        if(request.result) {
+        //           alert("Name: " + request.result.name + ", Age: " + request.result.age + ", Email: " + request.result.email);
+        //        } else {
+        //           alert("Kenny couldn't be found in your database!");
+        //        }
+        //     };
+        //  }
+         
+        //  function readAll() {
+        //     var request = db.transaction("employee").objectStore("employee").getAll();
+        //     console.log(request.onsuccess());
+        //     request.onsuccess = function(event) {
+        //         console.log(request.result);
+        //        // Do something with the request.result!
+        //        if(request.result) {
+            
+        //           //alert("Name: " + request.result.name + ", Age: " + request.result.age + ", Email: " + request.result.email);
+        //        } else {
+        //           //alert("Kenny couldn't be found in your database!");
+        //        }
+        //     };
+
+
+        //     // objectStore.openCursor().onsuccess = function(event) {
+        //     //    var cursor = event.target.result;
+               
+        //     //    if (cursor) {
+        //     //       alert("Name for id " + cursor.key + " is " + cursor.value.name + ", Age: " + cursor.value.age + ", Email: " + cursor.value.email);
+        //     //       cursor.continue();
+        //     //    } else {
+        //     //       alert("No more entries!");
+        //     //    }
+        //     // };
+        //  }
+
+        //  function update() {
+        //     var request = db.transaction(["employee"], "readwrite")
+        //     .objectStore("employee")
+        //     .put({ name: 'update', age: 'update', email: 'update' }, 2);
+        //     // Get the Contacts object store
+        //     //request = request.objectStore("employee");
+        //     // Remove
+        //     //request.put({ name: 'update', age: 'update', email: 'update' }, 1)
+        //     request.onsuccess = function(event) {
+        //        alert("Kenny's entry has been removed from your database.");
+        //     };
+        //  }
+         
+
+    /*
+    IndexDB: lưu trữ dữ liệu ở trình duyệt
+    Thuận lợi hơn LocalStorage: có thể lưu nhiều dữ liệu, lưu được nhiều kiểu dữ liệu
+    LocalStorage: Lưu trữ chuỗi
+    IndexDB: lưu theo dạng chuỗi, số, đối tượng, mảng đối tượng
+    */
+
+    /*
+        Tạo DB trên indexDB
+    */
+    
+
+    window.indexedDB = window.indexedDB || window.mozIndexedDB || 
+         window.webkitIndexedDB || window.msIndexedDB;
+         
+         //prefixes of window.IDB objects
+         window.IDBTransaction = window.IDBTransaction || 
+         window.webkitIDBTransaction || window.msIDBTransaction;
+         window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || 
+         window.msIDBKeyRange
+         
+         if (!window.indexedDB) {
+            window.alert("Your browser doesn't support a stable version of IndexedDB.")
+         }
+
+    var db;
+    // Khởi tạo DB
+    var request = window.indexedDB.open("newDatabase", 1);
+    
+
+    // Tạo đối tượng để lưu trữ
+    request.onupgradeneeded = function(event) {
+        
+        //console.log('1');
+        var db = event.target.result;
+        //var objectStore = db.createObjectStore("employee", {keyPath: "id"});
+        var objectStore = db.createObjectStore("employee", {autoIncrement: true });
+        // for (var i in employeeData) {
+        //     objectStore.add(employeeData[i]);
+        // }
+        // Thêm dữ liệu vào bên trong đối tượng
+        // Sử dụng phương add()
+        var obj = {
+            name : 'javascript',
+            age: 100,
+            email: 'javascript@gmail.com'
+        }
+        objectStore.add(obj);
+    }
+
+    request.onerror = function(event) {
+        console.log("error: ");
+    };
+    request.onsuccess = function(event) {
+        db = request.result;
+        console.log("success: "+ db);
+    };
+    
+    // Dựa vào DB đã định nghĩa, mình tạo các chức năng, thêm, sửa, xóa, lấy ra danh sách
+    // Thêm dữ liệu
+     function add() {
+            // create a new transaction
+            //var txn = db.transaction(["employee"], "readwrite");
+            // get the Contacts object store
+            //const store =  txn.objectStore("employee");
+
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let email = document.getElementById("email").value;
+
+            //store.add({ name: name, age: age, email: email });
+            // Các bước để thêm
+            // Tạo mới 1 transaction
+            var request = db.transaction(["employee"], "readwrite");
+            // Lấy ra đối tượng cần lưu trữ
+            request = request.objectStore("employee");
+            // Thêm vào employee, sử dụng phương thức add()
+            request = request.add({ name: name, age: age, email: email });
+
+            request.onsuccess = function(event) {
+               console.log('Success')
+            };
+            
+            request.onerror = function(event) {
+                console.log('Error')
+            }
+        }
+
+
+         function remove() {
+            // Tạo mới 1 transaction
+            var request = db.transaction(["employee"], "readwrite");
+            // Lấy ra đối tượng cần lưu trữ
+            request = request.objectStore("employee");
+            // Xóa dùng phương thức delete(), truyền vào key cần xóa
+            request.delete(1); // Xóa dữ liệu với key là 1
+            // request.onsuccess = function(event) {
+            //    //
+            // };
+        }
+
+         function update() {
+            // Tạo mới 1 transaction
+            var request = db.transaction(["employee"], "readwrite")
+            .objectStore("employee")
+            .put({ name: 'an updated', age: 'an updated', email: 'an updated' }, 2);
+            // Cập nhật sử dụng phương put()
+            // 2 tham số, tham số đầu tiên: đối tượng cần cập nhật
+            // Tham số thứ 2 là key truyền vào
+            // request.onsuccess = function(event) {
+            //    
+            // };
+        }
+
+        /*
+        Lấy ra 1 đối tượng
+        */
+        function read() {
+            // Sử dụng hàm get(key), truyền vào key cần lấy
+            var request = db.transaction(["employee"]).objectStore("employee").get(2);
+            
+            request.onerror = function(event) {
+               console.log('Error')
+            };
+    
+            request.onsuccess = function(event) {
+                // Lấy ra kết quả trả về
+                var result = request.result;
+                console.log(result);
+            };
+        }
+
+        /*
+        Lấy ra nhiều đối tượng
+        */
+        function readAll() {
+            // Sử dụng hàm getAll()
+            var request = db.transaction(["employee"]).objectStore("employee").getAll();
+            
+            request.onerror = function(event) {
+               console.log('Error')
+            };
+    
+            request.onsuccess = function(event) {
+                // Lấy ra kết quả trả về
+                var result = request.result;
+                console.log(result);
+            };
+        }
+
+
+
+</script>
+</body>
+</html>
