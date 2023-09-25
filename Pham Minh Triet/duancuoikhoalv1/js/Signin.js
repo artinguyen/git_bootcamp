@@ -227,7 +227,6 @@ function Signin() {
       console.log("Lỗi khi lưu trữ vào IndexedDB");
     };
 
-
     transaction.oncomplete = function(event) {
       console.log("Giao dịch hoàn tất");
     };
@@ -244,15 +243,13 @@ function Signin() {
 
  
     if (!db.objectStoreNames.contains("users")) {
-      db.createObjectStore("users", { keyPath: "username" });
+      db.createObjectStore("users", { autoIncrement: true });
     }
   };
 
   alert("Chúc mừng bạn đã đăng ký thành công!");
   return true;
 }
-
-
 
 function displayError(elementId, errorMessage) {
   var errorElement = $("#" + elementId);
