@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> trang đăng ký </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#form_register').submit(function(){
+                
+                });
+            });
+        </script>
+        <style>
+            table{
+                margin: auto;
+                width:30%;
+                height:60px;        
+            }
+            table tr:nth-child(8){
+                text-align: center;
+                border: 0px;
+            }
+            h1{
+                text-align: center;
+            }
+            h3{
+                text-align:left;
+            }
+            input{
+                width:99%;
+                height: 40px;   
+                background-color: rgb(197, 197, 197);
+            }
+            button{
+                background-color: aqua;
+                width:101%;
+                height:60px;
+            }
+            h3, h1{
+                margin: 10px;
+            }
+        </style>
+       
+    </head>
+    <body>
+        <form  id="form_register">
+            <table>
+                <tr> 
+                    <th colspan="2"><h1> Đăng Ký</h1> </th>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 colspan="2">Tên đăng nhập: </h3>
+                        <input type="text" name="username" id="username" value="" /><br>
+                        <span id="username_error"></span>
+                    </td>
+                </tr>
+                <tr>                
+                    <td>
+                        <h3 colspan="2">Mật khẩu:</h3>
+                        <input type="password" name="password" id="password" value="" /><br>
+                        <span id="password_error"></span>
+                    </td>
+                </tr>
+                <tr>                   
+                    <td>
+                        <h3 colspan="2">Nhập lại mật khẩu:</h3>
+                        <input type="password" name="re-password" id="re_password" value="" /><br>
+                        <span id="re_password_error"></span>
+                    </td>
+                </tr>
+                <tr>  
+                    <td>
+                        <h3 colspan="2">Email:</h3>
+                        <input type="text" name="email" id="email" value="" /><br>
+                        <span id="email_error"></span>
+                    </td>
+                </tr>
+                <tr>                
+                    <td>
+                        <h3 colspan="2">tên người dùng:</h3>
+                        <input type="text" name="name" id="name" value="" /><br>
+                        <span id="name_error"></span>
+                    </td>
+                </tr>
+                <tr>        
+                    <td>
+                        <h3 colspan="2">SĐT:</h3>
+                        <input type="number" name="SDT" id="SDT" value="" /><br>
+                        <span id="SDT_error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="add()" name="register" id="register"><h2>Đăng Ký</h2></button></td>
+                </tr>
+            </table>
+        </form> 
+        <script>
+        $(document).ready(function(){      
+            $('#form_register').submit(function(){
+                var username    = $.trim($('#username').val());
+                var password    = $.trim($('#password').val());
+                var re_password = $.trim($('#re_password').val());
+                var email       = $.trim($('#email').val());
+                var name        = $.trim($('#name').val());
+                var SDT         = $.trim($('#SDT').val());
+                var flag = true;
+ 
+                // Username
+                if (username == '' || username.length <=5){
+                    $('#username_error').text('Tên đăng nhập phải lớn hơn 4 ký tự').css('color','red');
+                    flag = false;
+                }
+                else{
+                    $('#username_error').text('');
+                }
+                // Password
+                if (password.length <= 0){
+                    $('#password_error').text('Bạn phải nhập mật khẩu').css('color','red');
+                    flag = false;
+                }
+                else{
+                    $('#password_error').text('');
+                }
+                // Re password
+                if (password != re_password){
+                    $('#re_password_error').text('Mật khẩu nhập lại không đúng').css('color','red');
+                    flag = false;
+                }
+                else{
+                    $('#re_password_error').text('');
+                }
+                // Email
+                if (!email.includes("@") || !email.includes(".com")) {
+                    $('#email_error').text('Email không đúng định dạng').css('color','red');
+                    flag = false;
+                }
+                else if(  email ==''){
+                    $('#email_error').text('Email không để trống').css('color','red');
+                }
+                else {
+                    $('#email_error').text('');
+                }
+                // name
+                if (name.length<=8){
+                    $('#name_error').text('vui long nhap lai ').css('color','red');
+                    flag = false;
+                }
+                else{
+                    $('#name_error').text('');
+                }
+                // SDT
+                if (SDT.length != 11 ){
+                    $('#SDT_error').text('SDT ko dung ').css('color','red');
+                    flag = false;
+                }
+                else if(SDT.charAt(0) !== "0" ){
+                    $('#SDT_error').text('SDT ko dung ').css('color','red');
+                    flag = false;
+                }
+                else{
+                    $('#SDT_error').text('');
+                }
+
+                return flag;
+            });
+                
+        })
+        //khoi tao db
+        var db;
+           
+            var request=window.indexedDB.open("user database",1)
+            request.onerror=function(event){
+                console.log("error");
+            };
+            request.onsuccess=function(event){
+                db=request.result;
+                console.log("success:"+db)
+            }
+            request.onupgradeneeded=function(event){
+                var db= event.target.result;
+                var objectstore= db.createObjectStore("user",{autoIncrement:true});
+                var obj={
+                    username : 'username',
+                    password : 'password',
+                    email: 'email',
+                    name : 'name',
+                    SDT : 'SDT',
+                }
+                objectstore.add(obj);
+            }
+            function add(){
+                let username=document.getElementById('username').value;
+                let password=document.getElementById('password').value;
+                let email=document.getElementById('email').value;
+                let name=document.getElementById('name').value;
+                let SDT=document.getElementById('SDT').value;
+                var request=db.transaction(["user"],"readwrite");
+                request =request.objectStore("user");
+                request =request.add({ username:username, password:password, email:email, name:name, SDT:SDT });
+                request.onsuccess= function(event){                    
+                };
+                request.onerror= function(event){
+                    alert("error ")
+                }
+            }
+        </script>
+    </body>
+</html>

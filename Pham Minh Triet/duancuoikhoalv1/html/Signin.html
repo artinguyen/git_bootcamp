@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i|Noto+Sans:400,400i,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../js/Signin.js"></script>
+  </head>
+  <body>
+    <div class="to">
+      <div class="form">
+        <h2>Đăng ký</h2>
+        <label style="margin-left: -150px">Họ và tên</label>
+        <input type="text" name="name" id="name" />
+        <span id="nameError" class="error"></span>
+        <label>Số điện thoại</label>
+        <input type="text" name="phonenumber" id="phonenumber" />
+        <span id="phonenumberError" class="error"></span>
+        <label style="margin-left: -180px">Email</label>
+        <input type="text" name="email" id="email" />
+        <span id="emailError" class="error"></span>
+        <div class="sex">
+          <label style="margin-left: 1px">Giới tính</label>
+          <input type="radio" name="sex" id="sex" value="male" />Nam
+          <input type="radio" name="sex" id="sex" value="female" />Nữ
+        </div>
+        <label style="margin-left: -100px">Tên người dùng</label>
+        <input type="text" name="nameuser" id="nameuser" />
+        <span id="nameuserError" class="error"></span>
+        <div class="form-pass">
+          <label style="margin-left: 0px">Mật khẩu</label>
+          <input type="password" name="password" id="password" />
+          <span id="passwordError" class="error"></span>
+          <label style="margin-left: 0px">Xác nhận mật khẩu</label>
+          <input type="password" name="confirmpassword" id="confirmpassword" />
+          <span id="confirmpasswordError" class="error"></span>
+        </div>
+        <input onclick="validateForm()" class="submit" type="submit" value="Đăng Ký" />
+      </div>
+    </div>
+  </body>
+</html>
