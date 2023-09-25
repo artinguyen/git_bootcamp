@@ -3,11 +3,9 @@
     padding:0;
     border:none;
     font-family: 'Open Sans', sans-serif;
-    color: #d7eae5;
 }
 body {
     overflow: hidden;
-    background-color: #5D7B6F;
 }
 .to {
     display: grid;
@@ -27,7 +25,6 @@ body {
     position: relative;
     border-radius: 15px;
     box-shadow: 0px 0px 14px 0px grey;
-    background-color: #a4c2a3;
 }
 
 h2 {
@@ -42,7 +39,6 @@ label {
     font-weight: lighter;
 } 
 input{
-    background-color: #b0d4b8;
     border-bottom: 2px solid #00BCD4;
     margin-top: 6px;
     margin-bottom: 10px;
@@ -53,9 +49,7 @@ input[type="text"] {
     width: 70%;
 }
 .sex {
-    /* border-bottom: 2px solid #00BCD4; */
     width: 220px;
-    
 }
 
 input[type="radio"] {
