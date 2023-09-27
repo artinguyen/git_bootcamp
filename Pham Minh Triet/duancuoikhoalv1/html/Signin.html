@@ -23,36 +23,31 @@
     <script src="../js/Signin.js"></script>
   </head>
   <body>
-    <div class="to">
-      <div class="form">
-        <h2>Đăng ký</h2>
-        <label style="margin-left: -150px">Họ và tên</label>
-        <input type="text" name="name" id="name" />
-        <span id="nameError" class="error"></span>
-        <label>Số điện thoại</label>
-        <input type="text" name="phonenumber" id="phonenumber" />
-        <span id="phonenumberError" class="error"></span>
-        <label style="margin-left: -180px">Email</label>
-        <input type="text" name="email" id="email" />
-        <span id="emailError" class="error"></span>
-        <div class="sex">
-          <label style="margin-left: 1px">Giới tính</label>
-          <input type="radio" name="sex" id="sex" value="male" />Nam
-          <input type="radio" name="sex" id="sex" value="female" />Nữ
-        </div>
-        <label style="margin-left: -100px">Tên người dùng</label>
-        <input type="text" name="nameuser" id="nameuser" />
-        <span id="nameuserError" class="error"></span>
-        <div class="form-pass">
-          <label style="margin-left: 0px">Mật khẩu</label>
-          <input type="password" name="password" id="password" />
-          <span id="passwordError" class="error"></span>
-          <label style="margin-left: 0px">Xác nhận mật khẩu</label>
-          <input type="password" name="confirmpassword" id="confirmpassword" />
-          <span id="confirmpasswordError" class="error"></span>
-        </div>
-        <input onclick="Signin()" class="submit" type="submit" value="Đăng Ký" />
-      </div>
-    </div>
+    <form>
+      <h2>Đăng ký</h2>
+      <label st>Họ và tên</label>
+      <input type="text" name="name" id="name" />
+      <span id="nameError" class="error"></span>
+      <label>Số điện thoại</label>
+      <input type="text" name="phonenumber" id="phonenumber" />
+      <span id="phonenumberError" class="error"></span>
+      <label st>Email</label>
+      <input type="text" name="email" id="email" />
+      <span id="emailError" class="error"></span>
+        <label>Giới tính</label>
+        <input type="radio" name="sex" id="sexMale" value="male"/> <p>Nam</p>
+        <input type="radio" name="sex" id="sexFemale" value="female" /> <p>Nữ</p>
+        <span id="sexError" class="error"></span>
+      <label st>Tên người dùng</label>
+      <input type="text" name="nameuser" id="nameuser" />
+      <span id="nameuserError" class="error"></span>
+        <label>Mật khẩu</label>
+        <input type="password" name="password" id="password" />
+        <span id="passwordError" class="error"></span>
+        <label>Xác nhận mật khẩu</label>
+        <input type="password" name="confirmpassword" id="confirmpassword" />
+        <span id="confirmpasswordError" class="error"></span>
+      <input onclick="Signin(event)" class="submit" type="submit" value="Đăng Ký" />
+    </form>
   </body>
 </html>

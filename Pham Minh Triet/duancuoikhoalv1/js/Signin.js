@@ -1,108 +1,5 @@
-// viet bang js thuần
-// function validateForm() {
-//     let nameInput = document.getElementById("name").value;
-//     let emailInput = document.getElementById("email").value;
-//     let phoneNumberInput = document.getElementById("phonenumber").value;
-//     let sexInputs = document.getElementsByName("sex");
-//     let usernameInput = document.getElementById("nameuser").value;
-//     let passwordInput = document.getElementById("password").value;
-//     let confirmPasswordInput = document.getElementById("confirmpassword").value;
-
-//     // Xóa thông báo lỗi cũ
-//     clearErrors();
-
-//     // Kiểm tra tính hợp lệ của ô #name
-//     if (nameInput.trim() === "") {
-//       displayError("nameError", "Họ và tên không được bỏ trống.");
-//       return false;
-//     } else if (nameInput.length < 5) {
-//       displayError("nameError", "Họ và tên phải có ít nhất 5 ký tự.");
-//       return false;
-//     }
-
-//     // Kiểm tra tính hợp lệ của ô #phonenumber
-//     if (phoneNumberInput.trim() === "") {
-//       displayError("phonenumberError", "Số điện thoại không được bỏ trống.");
-//       return false;
-//     } else if (phoneNumberInput.length < 10 || phoneNumberInput.length > 12 || phoneNumberInput.charAt(0) !== "0") {
-//       displayError("phonenumber", "Số điện thoại không hợp lệ.");
-//       return false;
-//     };
-
-//     // Kiểm tra tính hợp lệ của ô #email
-//     if (emailInput.trim() === "") {
-//        displayError("emailError", "Email không được bỏ trống.");
-//        return false;
-//     } else if (!emailInput.includes("@") || !emailInput.includes(".com")) {
-//        displayError("emailError", "Email không hợp lệ.");
-//        return false;
-//      };
-
-//      // Kiểm tra tính hợp lệ của ô #sex
-//     var selectedSex = false;
-//     for (var i = 0; i < sexInputs.length; i++) {
-//       if (sexInputs[i].checked) {
-//         selectedSex = true;
-//         break;
-//       }
-//     }
-//     if (!selectedSex) {
-//       displayError("sexError", "Vui lòng chọn giới tính.");
-//       return false;
-//     }
-
-//     // Kiểm tra tính hợp lệ của ô #nameuser
-//     if (usernameInput.trim() === "") {
-//       displayError("nameuserError", "");
-//       return false;
-//     } else if (usernameInput.length < 6) {
-//       displayError("nameuserError", "Tên người dùng phải có ít nhất 6 ký tự.");
-//       return false;
-//     }
-
-//     // Kiểm tra tính hợp lệ của ô #password
-//     if (passwordInput.trim() === "") {
-//       displayError("passwordError", "Mật khẩu phải có ít nhất 8 ký tự.");
-//       return false;
-//     } else if(passwordInput.length < 8 || !/[A-Z]/.test(passwordInput) || !/[a-z]/.test(passwordInput) || !/[@#$&]/.test(passwordInput) || !/\d/.test(passwordInput)) {
-//       displayError("passwordError", "Mật khẩu không đáp ứng yêu cầu bảo mật. Mật khẩu phải có chứa ít nhất 8 ký tự, chứa ít nhất 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự đặt biệt trong dãy (@#$&) và 1 ký tự số.");
-//     }
-
-//     // Kiểm tra tính hợp lệ của ô #confirmpassword
-//     if (confirmPasswordInput !== passwordInput) {
-//       displayError("confirmpasswordError", "Mật khẩu xác nhận không khớp.");
-//       return false;
-//     }
-
-//     // nếu tất cả hợp lệ thì hiện alert dk thành công
-//     alert(" Chúc mừng bạn đả đăng ký thành công!");
-//     return true;
-//   }
-
-//   function displayError(elementId, errorMessage) {
-//   var errorElement = document.getElementById(elementId);
-//   errorElement.innerText = errorMessage;
-//   errorElement.style.display = "block";
-//   errorElement.style.color = "red";
-//   errorElement.style.marginTop = "5px";
-//   errorElement.style.fontSize = "14px";
-
-// // Tìm ô input tương ứng
-//   var inputElement = document.getElementById(elementId.replace("Error", ""));
-//    if (inputElement) {
-//    inputElement.classList.add("error-input");
-//    }
-// }
-
-//   function clearErrors() {
-//     var errorElements = document.getElementsByClassName("error");
-//     for (var i = 0; i < errorElements.length; i++) {
-//       errorElements[i].innerText = "";
-//       errorElements[i].style.display = "none";
-//     }
-// }
-// viết bằng j query
-function Signin() {
+function Signin(event) {
+  event.preventDefault();
   let nameInput = $("#name").val();
   let emailInput = $("#email").val();
   let phoneNumberInput = $("#phonenumber").val();
@@ -113,7 +10,10 @@ function Signin() {
 
   // Xóa thông báo lỗi cũ
   clearErrors();
-
+// Xóa lỗi error-input khi người dùng thay đổi giá trị trong ô input
+$("input").on("input", function() {
+  $(this).removeClass("error-input");
+});
   // Kiểm tra tên
   if ($.trim(nameInput) === "") {
     displayError("nameError", "Họ và tên không được bỏ trống.");
@@ -160,7 +60,7 @@ function Signin() {
 
   // Kiểm tra tên người dùng
   if ($.trim(usernameInput) === "") {
-    displayError("nameuserError", "");
+    displayError("nameuserError", "Tên người dùng không được bỏ trống.!");
     return false;
   } else if (usernameInput.length < 6) {
     displayError("nameuserError", "Tên người dùng phải có ít nhất 6 ký tự.");
@@ -190,6 +90,7 @@ function Signin() {
     displayError("confirmpasswordError", "Mật khẩu xác nhận không khớp.");
     return false;
   }
+// Tạo đối tượng user từ thông tin nhập vào
 
   var user = {
     name: nameInput,
@@ -200,53 +101,53 @@ function Signin() {
     password: passwordInput
   };
 
-
+// Mở kết nối với cơ sở dữ liệu IndexedDB
   var request = indexedDB.open("myDatabase", 1);
-
-  request.onerror = function(event) {
+// Xử lý lỗi khi kết nối tới IndexedDB
+  request.onerror = function (event) {
     console.log("Lỗi kết nối tới cơ sở dữ liệu IndexedDB");
   };
-
-  request.onsuccess = function(event) {
+// Xử lý lỗi khi kết nối tới IndexedDB
+  request.onsuccess = function (event) {
     var db = event.target.result;
 
-
+// Bắt đầu giao dịch trên cơ sở dữ liệu
     var transaction = db.transaction(["users"], "readwrite");
 
- 
+  // Lấy object store "users"
     var usersStore = transaction.objectStore("users");
 
-
+// Thêm user vào object store
     var addUserRequest = usersStore.add(user);
-
-    addUserRequest.onsuccess = function(event) {
+// Xử lý khi thêm user thành công
+    addUserRequest.onsuccess = function (event) {
       console.log("Lưu trữ thành công vào IndexedDB");
     };
-
-    addUserRequest.onerror = function(event) {
+// Xử lý khi thêm user thất bại
+    addUserRequest.onerror = function (event) {
       console.log("Lỗi khi lưu trữ vào IndexedDB");
     };
-
-    transaction.oncomplete = function(event) {
+// Xử lý khi giao dịch hoàn tất
+    transaction.oncomplete = function (event) {
       console.log("Giao dịch hoàn tất");
     };
-
-    transaction.onerror = function(event) {
+// Xử lý lỗi trong quá trình giao dịch
+    transaction.onerror = function (event) {
       console.log("Lỗi giao dịch");
     };
-
+// Đóng kết nối tới IndexedDB
     db.close();
   };
-
-  request.onupgradeneeded = function(event) {
+// Xử lý khi cần nâng cấp cấu trúc cơ sở dữ liệu
+  request.onupgradeneeded = function (event) {
     var db = event.target.result;
 
- 
+// Kiểm tra và tạo object store "users" nếu chưa tồn tại
     if (!db.objectStoreNames.contains("users")) {
       db.createObjectStore("users", { autoIncrement: true });
     }
   };
-
+// hiển thị thông báo đăng ký thành công
   alert("Chúc mừng bạn đã đăng ký thành công!");
   return true;
 }
@@ -255,11 +156,6 @@ function displayError(elementId, errorMessage) {
   var errorElement = $("#" + elementId);
   errorElement.text(errorMessage);
   errorElement.show();
-  errorElement.css({
-    color: "red",
-    marginTop: "5px",
-    fontSize: "14px",
-  });
 
   // Tìm ô input tương ứng
   var inputElement = $("#" + elementId.replace("Error", ""));

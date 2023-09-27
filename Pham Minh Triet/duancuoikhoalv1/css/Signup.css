@@ -1,11 +1,11 @@
-*{
-    margin:0;
-    padding:0;
-    border:none;
-    font-family: 'Open Sans', sans-serif;
-}
-
-form {
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  form {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -16,34 +16,34 @@ form {
     width: 300px;
     border-radius: 15px;
     box-shadow: 0px 0px 14px 0px grey;
-}
-
-h2 {
+  }
+  
+  h2 {
     text-align: center;
     font-size: 40px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-}
-
-label {
+    margin: 50px 0 30px;
+  }
+  
+  label {
     margin-left: 20px;
     display: block;
     font-weight: lighter;
-} 
-input{
-    border-bottom: 2px solid #00BCD4;
-    margin-top: 6px;
-    margin-bottom: 10px;
+  }
+  
+  input {
+    border-bottom: 2px solid #00bcd4;
+    margin: 6px 0 10px;
     outline-style: none;
-}
-
-input[type="password"], input[type="text"] {
+  }
+  
+  #password,
+  #name {
     margin-left: 10%;
     width: 220px;
     height: 30px;
-}
-
-.submit {
+  }
+  
+  .submit {
     margin-top: 30px;
     margin-left: 60px;
     padding: 7px;
@@ -54,10 +54,19 @@ input[type="password"], input[type="text"] {
     font-weight: 900;
     font-size: 20px;
     background: linear-gradient(to right, #d7eae5, #64c7cd);
-}
-.submit:hover{
+  }
+  
+  .submit:hover {
     width: 60%;
     font-size: 30px;
     color: #ffffff;
-    background: linear-gradient(to right, #97dbdf, #42b5be); 
-}
+    background: linear-gradient(to right, #97dbdf, #42b5be);
+  }
+  
+  .error {
+    display: block;
+    color: red;
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
